@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fluid Gallery · Hemanth Chandravamsi</title>
+<meta name="description" content="A visual gallery of high-speed flow phenomena: vorticity, shock cells, Kelvin–Helmholtz roll-up, schlieren, and more." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <canvas id="navflow" aria-hidden="true"></canvas>
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Hemanth Chandravamsi</a>
+    <div class="tabs">
+      <a href="index.html">About</a>
+      <a href="cv.html">CV</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="gallery.html" aria-current="page">Fluid Gallery</a>
+      <a href="misc.html">Misc.</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Fluid Gallery</p>
+      <h2>The pictures the equations make.</h2>
+      <p class="sub">High-speed flow is as much a visual subject as a numerical one. Below are the recurring characters of my work, rendered here procedurally with the same diverging colormap I use for vorticity. Swap any tile for a frame from your own simulations or schlieren.</p>
+
+      <div class="gallery">
+        <figure class="tile">
+          <canvas data-field="vorticity" aria-label="Vorticity field"></canvas>
+          <figcaption class="cap">
+            <div class="k">Vorticity</div>
+            <div class="t">Turbulent vorticity field</div>
+            <p class="d">Signed vorticity in a turbulent layer: the rotational fine structure that fidelity-hungry simulations have to resolve.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="tile">
+          <canvas data-field="shock_cells" aria-label="Shock cell structure"></canvas>
+          <figcaption class="cap">
+            <div class="k">Supersonic jet</div>
+            <div class="t">Under-expanded shock cells</div>
+            <p class="d">The diamond train of a choked, under-expanded jet: the structure behind screech and shock-associated noise.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="tile">
+          <canvas data-field="kelvin_helmholtz" aria-label="Kelvin-Helmholtz roll-up"></canvas>
+          <figcaption class="cap">
+            <div class="k">Instability</div>
+            <div class="t">Kelvin–Helmholtz roll-up</div>
+            <p class="d">A shear layer rolling into vortices: the canonical test for a high-order flux-reconstruction solver.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="tile">
+          <canvas data-field="schlieren" aria-label="Schlieren density gradient"></canvas>
+          <figcaption class="cap">
+            <div class="k">Imaging</div>
+            <div class="t">Schlieren density gradient</div>
+            <p class="d">Density-gradient magnitude, the quantity a schlieren rig makes visible, where the compressible action hides.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="tile">
+          <canvas data-field="diffraction" aria-label="Shock diffraction"></canvas>
+          <figcaption class="cap">
+            <div class="k">Shock dynamics</div>
+            <div class="t">Shock diffraction</div>
+            <p class="d">A shock front bending around a corner: Schardin's problem, expanding arcs after the edge.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="tile">
+          <canvas data-field="spectral" aria-label="Spectral dispersion"></canvas>
+          <figcaption class="cap">
+            <div class="k">Numerics</div>
+            <div class="t">Wavenumber &amp; dispersion</div>
+            <p class="d">Modes of growing wavenumber: the spectral resolution that decides whether a scheme keeps or smears them.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="note">These six tiles are generated in the browser as placeholders. To use your own media, drop images into <code>assets/gallery/</code> and replace a <code>&lt;canvas&gt;</code> with <code>&lt;img src="assets/gallery/your-file.jpg" alt="…" /&gt;</code>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span class="foot-note">© 2026 Hemanth Chandravamsi</span>
+    <div class="social">
+      <a href="https://scholar.google.com/citations?user=fM2UaHoAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://github.com/hemanthgrylls" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/hemanth-chandravamsi-6863078b/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/fields.js"></script>
+<script src="assets/gallery.js"></script>
+<script src="assets/navflow.js"></script>
+</body>
+</html>

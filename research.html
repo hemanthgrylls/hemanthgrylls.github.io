@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Research · Hemanth Chandravamsi</title>
+<meta name="description" content="Research: supersonic jet noise, numerical algorithms for hyperbolic PDEs, and scientific machine learning." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <canvas id="navflow" aria-hidden="true"></canvas>
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Hemanth Chandravamsi</a>
+    <div class="tabs">
+      <a href="index.html">About</a>
+      <a href="cv.html">CV</a>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="gallery.html">Fluid Gallery</a>
+      <a href="misc.html">Misc.</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Research</p>
+      <h2>Three threads, one question.</h2>
+      <p class="sub">How do you simulate high-speed flows accurately and fast enough to actually learn from them? My work runs from the physics of jet noise, through the numerics that resolve it, to the machine learning that compresses what we find.</p>
+
+      <div class="grid cols-3">
+        <article class="card">
+          <span class="topline" aria-hidden="true"></span>
+          <span class="idx">AREA 01</span>
+          <h3>Supersonic jet noise</h3>
+          <p>When a non-ideally expanded supersonic jet leaves a nozzle, it undergoes intricate self- and external interactions that radiate sound. I study the split between shock-associated noise (screech and its broadband cousin) and the mixing noise that isn't tied to shocks. Pinning down the generation mechanism is the prerequisite for mitigating it.</p>
+        </article>
+
+        <article class="card">
+          <span class="topline" aria-hidden="true"></span>
+          <span class="idx">AREA 02</span>
+          <h3>Numerics for hyperbolic PDEs</h3>
+          <p>The Navier–Stokes equations need discretization before a computer can touch them. I develop high-order algorithms and the codes that run them: methods that are accurate, robust, and scalable, and that are smart about how they spend compute, delivering both fidelity and speed.</p>
+        </article>
+
+        <article class="card">
+          <span class="topline" aria-hidden="true"></span>
+          <span class="idx">AREA 03</span>
+          <h3>Scientific machine learning</h3>
+          <p>Modern ML reaches problems in fluid dynamics that were intractable not long ago: high-dimensional, non-convex, nonlinear. I use it to sharpen flow predictions and to understand dynamics, including predicting far-field noise from near-field flow.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Selected work</p>
+      <h2>Things I've built &amp; studied.</h2>
+      <div class="grid cols-2" style="margin-top:30px">
+        <article class="card proj">
+          <span class="tag">Multi-GPU solver</span>
+          <h3 style="margin:0">MIGHTY</h3>
+          <p>A multi-GPU accelerated large-eddy-simulation code developed during my PhD, built to run high-fidelity compressible simulations at scale on modern accelerators.</p>
+          <div class="links"><a href="https://arxiv.org/abs/2303.10785" target="_blank" rel="noopener">arXiv:2303.10785 ↗</a></div>
+        </article>
+
+        <article class="card proj">
+          <span class="tag">High-speed jets</span>
+          <h3 style="margin:0">LES of supersonic jets</h3>
+          <p>GPU-accelerated large-eddy simulations of choked, under-expanded supersonic jets, including temperature effects and the near-field acoustics of a Mach 1.35 jet.</p>
+          <div class="links"><a href="publications.html">See publications →</a></div>
+        </article>
+
+        <article class="card proj">
+          <span class="tag">Instabilities</span>
+          <h3 style="margin:0">Flux reconstruction &amp; KH</h3>
+          <p>A flux-reconstruction solver applied to the Kelvin–Helmholtz instability (the roll-up of a shear layer into vortices), exploring high-order accuracy on a canonical flow.</p>
+          <div class="links"><a href="gallery.html">See in gallery →</a></div>
+        </article>
+
+        <article class="card proj">
+          <span class="tag">Shock dynamics</span>
+          <h3 style="margin:0">Shock waves &amp; SBLI</h3>
+          <p>Shock diffraction (Schardin's problem), normal shocks through constrictions, and the control of three-dimensional shock/boundary-layer interactions using bleed, from wind-tunnel experiments at Mach ≈ 3 to simulation.</p>
+          <div class="links"><a href="publications.html">See publications →</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span class="foot-note">© 2026 Hemanth Chandravamsi</span>
+    <div class="social">
+      <a href="https://scholar.google.com/citations?user=fM2UaHoAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://github.com/hemanthgrylls" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/hemanth-chandravamsi-6863078b/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/fields.js"></script>
+<script src="assets/navflow.js"></script>
+</body>
+</html>
