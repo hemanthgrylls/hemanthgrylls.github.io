@@ -30,8 +30,9 @@
       <div>
         <p class="standfirst">Dr. Hemanth Chandravamsi is a Postdoctoral Fellow at Johns Hopkins University, specializing in the development of mathematical algorithms and high-performance computational tools for solving forward and inverse problems in fluid dynamics. His research addresses fundamental and applied challenges in engineering, with applications spanning high-speed flows, aerodynamics, and aeroacoustics.</p>
         <figure class="video-figure">
-          <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/B1hGOlWYCCA" title="Large-eddy simulation of an impinging supersonic jet" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="video-embed" id="ytfacade" role="button" tabindex="0" aria-label="Play the video">
+            <img class="yt-poster" src="https://i.ytimg.com/vi/B1hGOlWYCCA/maxresdefault.jpg" alt="Video preview" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/B1hGOlWYCCA/hqdefault.jpg'" />
+            <span class="yt-play" aria-hidden="true"></span>
           </div>
           <figcaption class="video-cap">
             <a href="https://gfm.aps.org/meetings/dfd-2023/650210c2199e4c1475d6f135" target="_blank" rel="noopener">APS-DFD 2023 Gallery of Fluid Motion submission ↗</a>
@@ -121,6 +122,20 @@
   var q = quotes[Math.floor(Math.random() * quotes.length)];
   document.getElementById("quote-text").textContent = q.t;
   document.getElementById("quote-by").textContent = q.b;
+
+  var f = document.getElementById("ytfacade");
+  if (f) {
+    var play = function () {
+      f.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/B1hGOlWYCCA?autoplay=1&modestbranding=1&rel=0&playsinline=1" title="Large-eddy simulation of an impinging supersonic jet" allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+      f.removeAttribute("role");
+      f.removeAttribute("tabindex");
+      f.removeAttribute("aria-label");
+    };
+    f.addEventListener("click", play);
+    f.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(); }
+    });
+  }
 })();
 </script>
 </body>
