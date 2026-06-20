@@ -54,6 +54,15 @@
     </div>
   </section>
 
+  <section class="section">
+    <div class="wrap">
+      <figure class="quote-box">
+        <blockquote id="quote-text"></blockquote>
+        <figcaption id="quote-by"></figcaption>
+      </figure>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
@@ -69,5 +78,31 @@
 
 <script src="assets/fields.js"></script>
 <script src="assets/navflow.js"></script>
+<script>
+(function () {
+  var quotes = [
+    { t: "Plato is my friend, Aristotle is my friend, but my greatest friend is truth.", b: "Sir Isaac Newton" },
+    { t: "Fear is for people who don't get out very much.", b: "Rick Steves" },
+    { t: "The first principle is that you must not fool yourself and you are the easiest person to fool.", b: "Richard P. Feynman" },
+    { t: "I think it's much more interesting to live not knowing than to have answers which might be wrong.", b: "Richard P. Feynman" },
+    { t: "You can know the name of a bird in all the languages of the world, but when you're finished, you'll know absolutely nothing whatever about the bird. So let's look at the bird and see what it's doing. That's what counts. I learned very early the difference between knowing the name of something and knowing something.", b: "Richard P. Feynman" },
+    { t: "What you do in life, echoes in eternity.", b: "Marcus Aurelius, Meditations" },
+    { t: "Truth is the beginning of every good to the gods, and of every good to man.", b: "Plato" },
+    { t: "Quality is not an act, it's a habit.", b: "Aristotle" },
+    { t: "There is no such thing as normal. Normal is just another word for lifeless.", b: "Shah Rukh Khan" },
+    { t: "Don't become a philosopher before you become rich.", b: "Shah Rukh Khan" },
+    { t: "Games are lost in the same spirit in which they are won.", b: "Unknown" },
+    { t: "The competition is all in your head. In reality it's always you vs you.", b: "Virat Kohli" },
+    { t: "If you're scared about getting out, fuck that. You got to be thinking about getting runs.", b: "Ricky Ponting" },
+    { t: "Creativity is connecting the dots.", b: "Steve Jobs" },
+    { t: "Art is solace, because it comes through you. Like something happens and all of a sudden you have an idea. When those moments strike, it's like religious. It's really fortunate, and really really rare thing.", b: "Kristen Stewart" },
+    { t: "I think you should keep going just to see what happens.", b: "Unknown" },
+    { t: "Nullius in verba (Take nobody's word for it).", b: "Royal Society" }
+  ];
+  var q = quotes[Math.floor(Math.random() * quotes.length)];
+  document.getElementById("quote-text").textContent = q.t;
+  document.getElementById("quote-by").textContent = q.b;
+})();
+</script>
 </body>
 </html>

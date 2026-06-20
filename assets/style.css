@@ -233,6 +233,55 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
   border: 0;
 }
 
+/* ---------- rotating quote box ---------- */
+.quote-box {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: clamp(30px, 5vw, 50px);
+  box-shadow: 0 1px 3px rgba(20, 30, 60, .05);
+}
+.quote-box::before {
+  content: "\201C";
+  display: block;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 58px;
+  line-height: .6;
+  margin-bottom: 16px;
+  background: linear-gradient(120deg, var(--cool), var(--warm));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.quote-box blockquote {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: clamp(16px, 1.9vw, 19px);
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+}
+.quote-box figcaption {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.quote-box figcaption::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cool), var(--warm));
+}
+
 /* research-interest chips */
 .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 8px; }
 .chip {
