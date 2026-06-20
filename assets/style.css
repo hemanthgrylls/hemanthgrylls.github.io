@@ -239,7 +239,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
 .quote-host { padding-bottom: clamp(30px, 4vw, 48px); }
 .quote-box {
   position: relative;
-  max-width: 620px;
+  max-width: 720px;
   margin: 0 auto;
   text-align: center;
   background: #fff;
@@ -259,7 +259,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
 .flourish { display: block; width: min(210px, 58%); height: auto; margin: 0 auto 12px; }
 .flourish.flip { transform: scaleY(-1); margin: 14px auto 0; }
 .quote-hint {
-  max-width: 620px;
+  max-width: 720px;
   margin: 8px auto 0;
   text-align: right;
   font-family: var(--mono);
