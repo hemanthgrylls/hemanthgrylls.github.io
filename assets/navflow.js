@@ -1,5 +1,24 @@
 /* Nav background: the same curl-noise particle flow as the old hero, tuned
    for the thin top bar. Subtle, paused when hidden, static for reduced-motion. */
+
+/* Mobile menu: hamburger toggles the tabs dropdown on small screens. */
+(function () {
+  "use strict";
+  var btn = document.querySelector(".nav-toggle");
+  var nav = document.querySelector(".nav");
+  if (!btn || !nav) return;
+  function setOpen(open) {
+    nav.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+  btn.addEventListener("click", function () { setOpen(!nav.classList.contains("open")); });
+  var links = nav.querySelectorAll(".tabs a");
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener("click", function () { setOpen(false); });
+  }
+})();
+
 (function () {
   "use strict";
   var canvas = document.getElementById("navflow");
