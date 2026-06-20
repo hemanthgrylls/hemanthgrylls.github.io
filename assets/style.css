@@ -33,6 +33,7 @@ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--ground);
+  overflow-x: hidden;
   color: var(--text);
   font-family: var(--body);
   font-size: 17px;
@@ -397,7 +398,7 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   text-align: right;
 }
 .metrics-mini b { color: var(--text); font-weight: 600; }
-.metrics-mini a { color: var(--cool); }
+.metrics-mini a { color: var(--cool); white-space: nowrap; }
 
 /* ---------- publications ---------- */
 .wrap.pubs { max-width: 920px; }
@@ -416,7 +417,7 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
 }
 .pub {
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 56px minmax(0, 1fr);
   gap: 18px;
   padding: 18px 0;
   border-bottom: 1px solid var(--line);
@@ -572,6 +573,8 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   .cv-aside { text-align: left; }
   .cv-badge { display: inline-block; }
   .cv-journals { columns: 1; }
+  .pub-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .metrics-mini { text-align: left; }
 }
 
 /* split layout for about: text + side panel */
