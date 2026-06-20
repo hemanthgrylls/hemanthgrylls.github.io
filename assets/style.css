@@ -408,10 +408,13 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
 .footer-inner { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; justify-content: space-between; }
 .social { display: flex; gap: 8px; }
 .social a {
-  font-family: var(--mono); font-size: 13px; color: var(--muted);
-  border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; background: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 50%; background: #fff;
+  transition: color .12s ease, border-color .12s ease, transform .12s ease;
 }
-.social a:hover { color: var(--text); border-color: var(--cool); text-decoration: none; }
+.social a:hover { color: var(--text); border-color: var(--cool); text-decoration: none; transform: translateY(-1px); }
+.social svg { width: 17px; height: 17px; display: block; }
 .foot-note { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
 /* ---------- profile / CV timeline ---------- */
