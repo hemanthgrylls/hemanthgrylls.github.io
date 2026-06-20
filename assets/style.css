@@ -109,8 +109,8 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
 }
 .brand {
   font-family: var(--display);
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 17.5px;
   letter-spacing: -0.01em;
   color: var(--text);
   margin-right: auto;
@@ -118,6 +118,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
   align-items: center;
   gap: 10px;
 }
+.brand b { font-weight: 700; }
 .brand:hover { text-decoration: none; }
 .brand .mark {
   width: 13px; height: 13px; border-radius: 50%;
