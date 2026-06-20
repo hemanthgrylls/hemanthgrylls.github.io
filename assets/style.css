@@ -323,7 +323,15 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
 .metrics-mini a { color: var(--cool); }
 
 /* ---------- publications ---------- */
-.pub-group { margin-bottom: 44px; }
+.wrap.pubs { max-width: 920px; }
+.pub-group {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 18px 26px 6px;
+  box-shadow: 0 1px 3px rgba(20, 30, 60, .05);
+  margin-bottom: 18px;
+}
 .pub-group > h3 {
   font-family: var(--display); font-size: 14px; font-weight: 600;
   letter-spacing: .04em; text-transform: uppercase; color: var(--muted);
