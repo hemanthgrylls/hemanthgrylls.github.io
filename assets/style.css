@@ -239,13 +239,13 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
 .quote-host { padding-bottom: clamp(30px, 4vw, 48px); }
 .quote-box {
   position: relative;
-  max-width: 800px;
+  max-width: 620px;
   margin: 0 auto;
   text-align: center;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--r);
-  padding: clamp(26px, 4vw, 40px) clamp(28px, 6vw, 60px);
+  padding: clamp(22px, 3vw, 32px) clamp(26px, 5vw, 44px);
   box-shadow: 0 1px 3px rgba(20, 30, 60, .05);
 }
 .quote-box::before {
