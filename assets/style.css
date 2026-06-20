@@ -537,12 +537,12 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
   font-weight: 600;
   letter-spacing: .03em;
   text-transform: uppercase;
-  color: #fff;
-  background: linear-gradient(120deg, var(--cool), var(--warm));
+  color: #4a5160;
+  background: linear-gradient(120deg, color-mix(in srgb, var(--cool) 13%, #fff), color-mix(in srgb, var(--warm) 13%, #fff));
+  border: 1px solid color-mix(in srgb, var(--cool) 15%, var(--line));
   border-radius: 6px;
   padding: 6px 8px;
   line-height: 1.3;
-  box-shadow: 0 2px 6px -2px color-mix(in srgb, var(--cool) 45%, transparent);
 }
 .cv-inst { display: block; font-size: 20px; margin-top: 9px; opacity: .55; }
 .cv-body .title { font-family: var(--display); font-weight: 600; font-size: 17px; margin: 0 0 3px; }
