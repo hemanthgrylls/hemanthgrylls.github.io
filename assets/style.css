@@ -234,29 +234,29 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
 }
 
 /* ---------- rotating quote box ---------- */
+.quote-wrap { margin-top: clamp(34px, 5vw, 56px); }
+.quote-host { padding-bottom: clamp(30px, 4vw, 48px); }
 .quote-box {
-  max-width: 720px;
+  position: relative;
+  max-width: 800px;
   margin: 0 auto;
   text-align: center;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--r);
-  padding: clamp(30px, 5vw, 50px);
+  padding: clamp(26px, 4vw, 40px) clamp(28px, 6vw, 60px);
   box-shadow: 0 1px 3px rgba(20, 30, 60, .05);
 }
 .quote-box::before {
-  content: "\201C";
-  display: block;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 58px;
-  line-height: .6;
-  margin-bottom: 16px;
-  background: linear-gradient(120deg, var(--cool), var(--warm));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid color-mix(in srgb, var(--cool) 16%, var(--line));
+  border-radius: 9px;
+  pointer-events: none;
 }
+.flourish { display: block; width: min(210px, 58%); height: auto; margin: 0 auto 12px; }
+.flourish.flip { transform: scaleY(-1); margin: 14px auto 0; }
 .quote-box blockquote {
   font-family: var(--body);
   font-style: italic;
