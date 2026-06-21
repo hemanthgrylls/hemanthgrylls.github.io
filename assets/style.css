@@ -636,8 +636,39 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   object-fit: cover;
   border-radius: 10px;
   display: block;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
 }
+.panel-id { text-align: center; }
+.id-name {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 6px 0 14px;
+}
+.id-name b { font-weight: 700; }
+.id-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+.id-list li { font-size: 14.5px; color: #38404e; }
+.id-lab {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 13px;
+  color: #38404e;
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.id-lab .lab-k {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.id-lab a { color: var(--cool); }
 
 .portrait {
   aspect-ratio: 4/5; border-radius: var(--r); overflow: hidden;
