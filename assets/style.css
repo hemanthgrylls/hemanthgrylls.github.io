@@ -106,6 +106,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
   padding: 12px var(--pad);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 18px;
 }
 .brand {
@@ -175,6 +176,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
     flex-basis: 100%;
     width: 100%;
     flex-direction: column;
+    align-items: center;
     gap: 2px;
     margin-top: 8px;
     padding-top: 8px;
@@ -638,7 +640,7 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   display: block;
   margin: 0 0 16px;
 }
-.panel-id { text-align: center; }
+.panel-id { text-align: left; }
 .id-name {
   font-family: var(--display);
   font-size: 18px;
@@ -648,8 +650,9 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   margin: 6px 0 14px;
 }
 .id-name b { font-weight: 700; }
-.id-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
-.id-list li { font-size: 14.5px; color: #38404e; }
+.id-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.id-list li { display: flex; align-items: center; gap: 9px; font-size: 14.5px; color: #38404e; }
+.id-list .ic { width: 15px; height: 15px; flex: none; color: var(--muted); }
 .id-lab {
   display: flex;
   flex-direction: column;
