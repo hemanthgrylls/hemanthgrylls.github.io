@@ -651,7 +651,7 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   margin: 6px 0 14px;
 }
 .id-name b { font-weight: 700; }
-.id-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.id-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
 .id-list li { display: flex; align-items: center; justify-content: center; gap: 9px; font-size: 14.5px; color: #38404e; }
 .id-list .ic { width: 15px; height: 15px; flex: none; color: var(--muted); }
 .id-lab {
