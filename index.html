@@ -139,14 +139,77 @@
   showQuote();
   var rb = document.getElementById("quote-refresh");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (rb && box) {
+
+  function fadeInNew() {
+    showQuote();
+    qt.style.opacity = "0";
+    requestAnimationFrame(function () {
+      qt.style.transition = "opacity .32s ease";
+      qt.style.opacity = "1";
+      setTimeout(function () { qt.style.transition = ""; }, 380);
+    });
+  }
+
+  function dissolve() {
+    var rect = qt.getBoundingClientRect();
+    var w = Math.ceil(rect.width), h = Math.ceil(rect.height);
+    if (!w || !h) { showQuote(); return; }
+    var cs = getComputedStyle(qt);
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var cv = document.createElement("canvas");
+    cv.width = w * dpr; cv.height = h * dpr;
+    cv.style.cssText = "position:absolute;left:0;top:0;width:" + w + "px;height:" + h + "px;pointer-events:none;";
+    var c = cv.getContext("2d");
+    c.scale(dpr, dpr);
+    var fs = parseFloat(cs.fontSize);
+    var lh = parseFloat(cs.lineHeight) || fs * 1.6;
+    c.font = cs.fontStyle + " " + cs.fontWeight + " " + fs + "px " + cs.fontFamily;
+    c.fillStyle = cs.color;
+    c.textAlign = "center";
+    c.textBaseline = "middle";
+    var words = (qt.textContent || "").split(/\s+/), lines = [], cur = "";
+    for (var i = 0; i < words.length; i++) {
+      var t = cur ? cur + " " + words[i] : words[i];
+      if (c.measureText(t).width > w && cur) { lines.push(cur); cur = words[i]; } else cur = t;
+    }
+    if (cur) lines.push(cur);
+    var oy = (h - lines.length * lh) / 2;
+    for (var j = 0; j < lines.length; j++) c.fillText(lines[j], w / 2, oy + (j + 0.5) * lh);
+    var data = c.getImageData(0, 0, cv.width, cv.height).data;
+    var rgb = cs.color.match(/\d+/g) || [21, 25, 31];
+    var step = (w * h > 90000) ? 4 : (w > 480 ? 3 : 2);
+    var ps = [];
+    for (var y = 0; y < h; y += step) {
+      for (var x = 0; x < w; x += step) {
+        if (data[(Math.round(y * dpr) * cv.width + Math.round(x * dpr)) * 4 + 3] > 90) {
+          ps.push({ x: x, y: y, vx: (Math.random() - 0.5) * 1.1, vy: -(0.3 + Math.random() * 1.3), a: 1, d: 0.012 + Math.random() * 0.022 });
+        }
+      }
+    }
+    c.clearRect(0, 0, w, h);
+    qt.style.position = "relative";
+    qt.style.color = "transparent";
+    qt.appendChild(cv);
+    var fill = "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ")";
+    function frame() {
+      c.clearRect(0, 0, w, h);
+      var alive = 0;
+      for (var k = 0; k < ps.length; k++) {
+        var p = ps[k];
+        if (p.a <= 0) continue;
+        p.x += p.vx; p.y += p.vy; p.vy += 0.014; p.a -= p.d;
+        if (p.a > 0) { alive++; c.globalAlpha = p.a; c.fillStyle = fill; c.fillRect(p.x, p.y, 1.6, 1.6); }
+      }
+      if (alive > 0) { requestAnimationFrame(frame); }
+      else { cv.remove(); qt.style.color = ""; fadeInNew(); }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  if (rb) {
     rb.addEventListener("click", function () {
       if (reduce) { showQuote(); return; }
-      box.classList.add("q-swap");
-      setTimeout(function () {
-        showQuote();
-        box.classList.remove("q-swap");
-      }, 280);
+      try { dissolve(); } catch (e) { showQuote(); }
     });
   }
 
