@@ -319,7 +319,15 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   margin: 0 auto;
   text-align: center;
   padding: 6px clamp(12px, 4vw, 28px);
-  transition: opacity .16s ease;
+  transition: opacity .28s ease, filter .28s ease, transform .28s ease;
+}
+.quote-box.q-swap {
+  opacity: 0;
+  filter: blur(7px);
+  transform: translateY(9px) scale(.985);
+}
+@media (prefers-reduced-motion: reduce) {
+  .quote-box { transition: none; }
 }
 .flourish { display: block; width: min(210px, 58%); height: auto; margin: 0 auto 12px; }
 .flourish.flip { transform: scaleY(-1); margin: 14px auto 0; }

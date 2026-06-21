@@ -138,10 +138,15 @@
   }
   showQuote();
   var rb = document.getElementById("quote-refresh");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (rb && box) {
     rb.addEventListener("click", function () {
-      box.style.opacity = "0";
-      setTimeout(function () { showQuote(); box.style.opacity = "1"; }, 160);
+      if (reduce) { showQuote(); return; }
+      box.classList.add("q-swap");
+      setTimeout(function () {
+        showQuote();
+        box.classList.remove("q-swap");
+      }, 280);
     });
   }
 
