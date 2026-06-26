@@ -129,13 +129,28 @@
   var qt = document.getElementById("quote-text");
   var qb = document.getElementById("quote-by");
   var box = document.querySelector(".quote-box");
-  var last = -1;
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  var order, pos, lastShown = -1;
+  try { order = JSON.parse(localStorage.getItem("qOrder")); pos = parseInt(localStorage.getItem("qPos"), 10); } catch (e) {}
+  function reshuffle() {
+    order = shuffle(quotes.map(function (_, i) { return i; }));
+    if (order.length > 1 && order[0] === lastShown) { var t = order[0]; order[0] = order[1]; order[1] = t; }
+    pos = 0;
+  }
+  if (!Array.isArray(order) || order.length !== quotes.length || isNaN(pos) || pos < 0) reshuffle();
   function showQuote() {
-    var i;
-    do { i = Math.floor(Math.random() * quotes.length); } while (quotes.length > 1 && i === last);
-    last = i;
+    if (pos >= order.length) reshuffle();
+    var i = order[pos++];
+    lastShown = i;
     qt.textContent = quotes[i].t;
     qb.textContent = quotes[i].b;
+    try { localStorage.setItem("qOrder", JSON.stringify(order)); localStorage.setItem("qPos", String(pos)); } catch (e) {}
   }
   showQuote();
   var rb = document.getElementById("quote-refresh");
