@@ -118,6 +118,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
   display: flex;
   align-items: center;
   gap: 10px;
+  text-shadow: 0 0 5px var(--ground), 0 0 5px var(--ground);
 }
 .brand b { font-weight: 700; }
 .brand:hover { text-decoration: none; }
@@ -133,6 +134,8 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; l
   padding: 6px 11px;
   border-radius: 999px;
   white-space: nowrap;
+  /* ground-colored halo keeps text legible over the navflow particles */
+  text-shadow: 0 0 5px var(--ground), 0 0 5px var(--ground);
 }
 .tabs a:hover { color: var(--text); background: var(--ground-2); text-decoration: none; }
 .tabs a[aria-current="page"] {
