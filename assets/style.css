@@ -14,6 +14,10 @@
   --warm:     #C43A26;   /* red end of coolwarm — expansion / heat */
   --cool-soft:#E4EAFB;
   --warm-soft:#F8E6E2;
+  --cat-comp: var(--warm);   /* compressible flows */
+  --cat-num:  var(--cool);   /* numerical analysis */
+  --cat-ml:   #2E9E63;       /* machine learning */
+  --cat-hpc:  #E0A32E;       /* software / HPC */
 
   /* type */
   --display: "Space Grotesk", system-ui, sans-serif;
@@ -482,6 +486,7 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   border-bottom: 1px solid var(--line); padding-bottom: 10px; margin: 0 0 6px;
 }
 .pub {
+  position: relative;
   display: grid;
   grid-template-columns: 56px minmax(0, 1fr);
   gap: 18px;
@@ -501,6 +506,33 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
 .arxiv-pdf svg { width: 14px; height: 14px; display: block; }
 .pub .venue { font-style: italic; font-family: var(--body); color: #404856; }
 .pub .cites { color: var(--warm); }
+
+/* category accent bar (left edge) + color key */
+.pub::before {
+  content: "";
+  position: absolute;
+  left: -14px; top: 18px; bottom: 18px;
+  width: 4px; border-radius: 4px;
+  background: var(--bar, transparent);
+}
+.bar-c  { --bar: var(--cat-comp); }
+.bar-n  { --bar: var(--cat-num); }
+.bar-m  { --bar: var(--cat-ml); }
+.bar-nc { --bar: linear-gradient(var(--cat-num) 0 50%, var(--cat-comp) 50% 100%); }
+.bar-cs { --bar: linear-gradient(var(--cat-comp) 0 50%, var(--cat-hpc) 50% 100%); }
+.bar-mc { --bar: linear-gradient(var(--cat-comp) 0 50%, var(--cat-ml) 50% 100%); }
+.bar-mn { --bar: linear-gradient(var(--cat-num) 0 50%, var(--cat-ml) 50% 100%); }
+.bar-ms { --bar: linear-gradient(var(--cat-ml) 0 50%, var(--cat-hpc) 50% 100%); }
+.pub-key {
+  display: flex; flex-wrap: wrap; gap: 8px 20px;
+  margin: 0 0 18px; font-size: 13px; color: var(--muted);
+}
+.pub-key span { display: inline-flex; align-items: center; gap: 7px; }
+.pub-key .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.dot-c { background: var(--cat-comp); }
+.dot-n { background: var(--cat-num); }
+.dot-m { background: var(--cat-ml); }
+.dot-s { background: var(--cat-hpc); }
 
 .talk { padding: 14px 0; border-bottom: 1px solid var(--line); }
 .talk:last-child { border-bottom: 0; }
