@@ -132,28 +132,40 @@
   var qt = document.getElementById("quote-text");
   var qb = document.getElementById("quote-by");
   var box = document.querySelector(".quote-box");
-  function shuffle(a) {
+  // deterministic PRNG seeded from the time of day, so which quote greets
+  // you depends on when you open the page
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      var t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function timeOfDaySeed() {
+    var d = new Date();
+    return (d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds()) >>> 0;
+  }
+  function shuffle(a, rng) {
     for (var i = a.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
+      var j = Math.floor(rng() * (i + 1));
       var t = a[i]; a[i] = a[j]; a[j] = t;
     }
     return a;
   }
   var order, pos, lastShown = -1;
-  try { order = JSON.parse(localStorage.getItem("qOrder")); pos = parseInt(localStorage.getItem("qPos"), 10); } catch (e) {}
   function reshuffle() {
-    order = shuffle(quotes.map(function (_, i) { return i; }));
+    order = shuffle(quotes.map(function (_, i) { return i; }), mulberry32(timeOfDaySeed()));
     if (order.length > 1 && order[0] === lastShown) { var t = order[0]; order[0] = order[1]; order[1] = t; }
     pos = 0;
   }
-  if (!Array.isArray(order) || order.length !== quotes.length || isNaN(pos) || pos < 0) reshuffle();
+  reshuffle();
   function showQuote() {
     if (pos >= order.length) reshuffle();
     var i = order[pos++];
     lastShown = i;
     qt.textContent = quotes[i].t;
     qb.textContent = quotes[i].b;
-    try { localStorage.setItem("qOrder", JSON.stringify(order)); localStorage.setItem("qPos", String(pos)); } catch (e) {}
   }
   showQuote();
   var rb = document.getElementById("quote-refresh");
