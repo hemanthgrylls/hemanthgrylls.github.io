@@ -683,6 +683,20 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   .cv-journals { columns: 1; }
   .pub-head { flex-direction: column; align-items: flex-start; gap: 4px; }
   .metrics-mini { text-align: left; }
+  /* keep education logos on the right, centered against the text block */
+  .edu-row {
+    grid-template-columns: 1fr auto;
+    column-gap: 16px;
+    align-items: center;
+  }
+  .edu-row .cv-aside { grid-column: 1; grid-row: 1; }
+  .edu-row .cv-body  { grid-column: 1; grid-row: 2; margin-bottom: 0; }
+  .edu-row .cv-logo  {
+    grid-column: 2; grid-row: 1 / span 2;
+    align-self: center; justify-self: end;
+    height: 44px; max-width: 88px;
+  }
+  .edu-row .cv-logo[src*="iitm"], .edu-row .cv-logo[src*="bits"] { height: 50px; max-width: 96px; }
 }
 
 /* split layout for about: text + side panel */
