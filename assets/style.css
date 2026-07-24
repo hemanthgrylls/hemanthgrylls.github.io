@@ -501,9 +501,9 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
 .pub .authors { font-size: 14.5px; color: var(--muted); margin: 0 0 6px; }
 .pub .authors .me { color: var(--text); font-weight: 600; }
 .pub .meta { font-family: var(--mono); font-size: 12.5px; color: #6a7280; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
-.arxiv-pdf { display: inline-flex; align-items: center; color: var(--muted); }
-.arxiv-pdf:hover { color: var(--cool); }
-.arxiv-pdf svg { width: 14px; height: 14px; display: block; }
+.arxiv-pdf { display: inline-flex; align-items: center; color: #C8322A; }
+.arxiv-pdf:hover { opacity: .7; }
+.arxiv-pdf svg { width: 16px; height: 16px; display: block; }
 .pub .venue { font-style: italic; font-family: var(--body); color: #404856; }
 .pub .cites { color: var(--warm); }
 
