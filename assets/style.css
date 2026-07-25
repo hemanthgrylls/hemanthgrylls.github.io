@@ -663,8 +663,8 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   object-fit: contain;
 }
 .cv-logo[src*="iitm"], .cv-logo[src*="bits"] { height: 60px; max-width: 132px; }
-/* inline wordmark logo used in place of an institution name */
-.appt-logo { display: block; height: 30px; width: auto; max-width: 100%; margin: 3px 0 7px; }
+/* wordmark logo shown in place of an institution name */
+.id-logo { display: block; height: 26px; width: auto; max-width: 100%; margin: 2px 0; }
 .cv-body .title { font-family: var(--display); font-weight: 600; font-size: 17px; margin: 0 0 3px; }
 .cv-body .title .note-inline { color: var(--warm); }
 .cv-body .host { color: var(--muted); font-size: 14.5px; margin: 0 0 8px; line-height: 1.5; }
@@ -699,7 +699,7 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
     height: 44px; max-width: 88px;
   }
   .edu-row .cv-logo[src*="iitm"], .edu-row .cv-logo[src*="bits"] { height: 50px; max-width: 96px; }
-  .appt-logo { height: 26px; }
+  .id-logo { height: 22px; }
 }
 
 /* split layout for about: text + side panel */
