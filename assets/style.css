@@ -357,6 +357,12 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   text-underline-offset: 2px;
 }
 .qlink:hover { color: color-mix(in srgb, var(--cool) 82%, black); }
+.quote-box #quote-fa {
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
 .quote-box blockquote {
   font-family: var(--body);
   font-style: italic;
