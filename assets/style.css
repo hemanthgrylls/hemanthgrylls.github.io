@@ -370,6 +370,7 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   line-height: 1.6;
   color: var(--text);
   margin: 0;
+  white-space: pre-line;
 }
 .quote-box figcaption {
   font-family: var(--mono);

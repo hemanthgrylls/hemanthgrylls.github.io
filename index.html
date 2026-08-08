@@ -133,50 +133,38 @@
     { t: "You will love again the stranger who was your self. Give wine. Give bread. Give back your heart to itself, to the stranger who has loved you all your life, whom you ignored for another, who knows you by heart. Sit. Feast on your life.", b: "Derek Walcott, Love After Love" },
     { fa: "از کفر و ز اسلام برون صحرائیست، ما را به میان آن فضا سودائیست", t: "Out beyond ideas of wrongdoing and rightdoing, there is a field. I'll meet you there.", b: "Rumi" },
     { t: "The greatest victory is that which requires no battle.", b: "Sun Tzu, The Art of War" },
-    { t: "Pain and suffering are always inevitable for a large intelligence and a deep heart.", b: "Fyodor Dostoevsky, Crime and Punishment" }
+    { t: "Pain and suffering are always inevitable for a large intelligence and a deep heart.", b: "Fyodor Dostoevsky, Crime and Punishment" },
+    { d: 1, t: "Which way to the years I've let go by\nLet a thirsty man drink in its memories while the water still flows sweet and crystal clear", b: "Poets of the Fall, Given and Denied" }
   ];
   var qt = document.getElementById("quote-text");
   var qb = document.getElementById("quote-by");
   var qfa = document.getElementById("quote-fa");
   var box = document.querySelector(".quote-box");
-  // deterministic PRNG seeded from the time of day, so which quote greets
-  // you depends on when you open the page
-  function mulberry32(a) {
-    return function () {
-      a |= 0; a = a + 0x6D2B79F5 | 0;
-      var t = Math.imul(a ^ a >>> 15, 1 | a);
-      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-      return ((t ^ t >>> 14) >>> 0) / 4294967296;
-    };
+  var lastShown = -1;
+  // the designated default quote, shown to a first-time visitor
+  function defaultIndex() {
+    for (var i = 0; i < quotes.length; i++) if (quotes[i].d) return i;
+    return 0;
   }
-  function timeOfDaySeed() {
-    var d = new Date();
-    return (d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds()) >>> 0;
+  // a random quote, never the one currently on screen
+  function randomIndex() {
+    if (quotes.length < 2) return 0;
+    var i;
+    do { i = Math.floor(Math.random() * quotes.length); } while (i === lastShown);
+    return i;
   }
-  function shuffle(a, rng) {
-    for (var i = a.length - 1; i > 0; i--) {
-      var j = Math.floor(rng() * (i + 1));
-      var t = a[i]; a[i] = a[j]; a[j] = t;
-    }
-    return a;
-  }
-  var order, pos, lastShown = -1;
-  function reshuffle() {
-    order = shuffle(quotes.map(function (_, i) { return i; }), mulberry32(timeOfDaySeed()));
-    if (order.length > 1 && order[0] === lastShown) { var t = order[0]; order[0] = order[1]; order[1] = t; }
-    pos = 0;
-  }
-  reshuffle();
-  function showQuote() {
-    if (pos >= order.length) reshuffle();
-    var i = order[pos++];
+  function render(i) {
     lastShown = i;
     if (quotes[i].fa) { qfa.textContent = quotes[i].fa; qfa.style.display = ""; }
     else { qfa.textContent = ""; qfa.style.display = "none"; }
     qt.textContent = quotes[i].t;
     qb.textContent = quotes[i].b;
   }
-  showQuote();
+  // first-ever visit shows the default quote; every later load/refresh is random
+  function showQuote() { render(randomIndex()); }
+  var firstVisit = false;
+  try { if (!localStorage.getItem("qSeen")) { firstVisit = true; localStorage.setItem("qSeen", "1"); } } catch (e) {}
+  render(firstVisit ? defaultIndex() : randomIndex());
   var rb = document.getElementById("quote-refresh");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
