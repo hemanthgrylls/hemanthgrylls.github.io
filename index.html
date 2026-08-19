@@ -76,13 +76,13 @@
     </div>
     <div class="wrap quote-wrap">
       <figure class="quote-box">
+        <p class="quote-hint"><button type="button" id="quote-refresh" class="qlink">Refresh</button> to load a new quote</p>
         <svg class="flourish" viewBox="0 0 220 26" aria-hidden="true"><defs><linearGradient id="fg" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#2A4FC4"/><stop offset=".5" stop-color="#8a3d6f"/><stop offset="1" stop-color="#C43A26"/></linearGradient></defs><g fill="none" stroke="url(#fg)" stroke-width="1.3" stroke-linecap="round"><path d="M110 13 C126 13 133 7 147 8 C158 8.8 163 13 172 12"/><path d="M172 12 C180 11.3 184 7.5 188 10 C191 12 188.5 15.5 185 14"/><path d="M110 13 C94 13 87 7 73 8 C62 8.8 57 13 48 12"/><path d="M48 12 C40 11.3 36 7.5 32 10 C29 12 31.5 15.5 35 14"/><circle cx="110" cy="13" r="5" opacity=".4"/></g><g fill="url(#fg)" stroke="none"><path d="M147 8 C150 2.5 158 1.8 162 5 C158 9 150 9.5 147 8 Z" opacity=".5"/><path d="M73 8 C70 2.5 62 1.8 58 5 C62 9 70 9.5 73 8 Z" opacity=".5"/><circle cx="189" cy="10" r="1.8"/><circle cx="31" cy="10" r="1.8"/><circle cx="110" cy="13" r="2.4"/></g></svg>
         <p id="quote-fa" style="display:none"></p>
         <blockquote id="quote-text"></blockquote>
         <figcaption id="quote-by"></figcaption>
         <svg class="flourish flip" viewBox="0 0 220 26" aria-hidden="true"><defs><linearGradient id="fg2" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#2A4FC4"/><stop offset=".5" stop-color="#8a3d6f"/><stop offset="1" stop-color="#C43A26"/></linearGradient></defs><g fill="none" stroke="url(#fg2)" stroke-width="1.3" stroke-linecap="round"><path d="M110 13 C126 13 133 7 147 8 C158 8.8 163 13 172 12"/><path d="M172 12 C180 11.3 184 7.5 188 10 C191 12 188.5 15.5 185 14"/><path d="M110 13 C94 13 87 7 73 8 C62 8.8 57 13 48 12"/><path d="M48 12 C40 11.3 36 7.5 32 10 C29 12 31.5 15.5 35 14"/><circle cx="110" cy="13" r="5" opacity=".4"/></g><g fill="url(#fg2)" stroke="none"><path d="M147 8 C150 2.5 158 1.8 162 5 C158 9 150 9.5 147 8 Z" opacity=".5"/><path d="M73 8 C70 2.5 62 1.8 58 5 C62 9 70 9.5 73 8 Z" opacity=".5"/><circle cx="189" cy="10" r="1.8"/><circle cx="31" cy="10" r="1.8"/><circle cx="110" cy="13" r="2.4"/></g></svg>
       </figure>
-      <p class="quote-hint"><button type="button" id="quote-refresh" class="qlink">Refresh</button> to load a new quote</p>
     </div>
   </section>
 
@@ -111,7 +111,6 @@
     { t: "You can know the name of a bird in all the languages of the world, but when you're finished, you'll know absolutely nothing whatever about the bird. So let's look at the bird and see what it's doing. That's what counts. I learned very early the difference between knowing the name of something and knowing something.", b: "Richard P. Feynman" },
     { t: "What you do in life, echoes in eternity.", b: "Marcus Aurelius, Meditations" },
     { t: "Truth is the beginning of every good to the gods, and of every good to man.", b: "Plato" },
-    { t: "Quality is not an act, it's a habit.", b: "Aristotle" },
     { t: "There is no such thing as normal. Normal is just another word for lifeless.", b: "Shah Rukh Khan" },
     { t: "Games are lost in the same spirit in which they are won.", b: "Unknown" },
     { t: "The competition is all in your head. In reality it's always you vs you.", b: "Virat Kohli" },
@@ -141,6 +140,8 @@
     { script: "అంతరాంతరము లెంచి చూడ పిండపు శోధనమొక్కటే\n(Antharantharamu lenchi chooda pindapu shodhanamokkate)", t: "When you look deep inside, the physical creation and biological reality of all human beings are completely identical.", b: "Annamayya Keerthanalu" },
     { t: "The greatest victory is that which requires no battle.", b: "Sun Tzu, The Art of War" },
     { t: "Pain and suffering are always inevitable for a large intelligence and a deep heart.", b: "Fyodor Dostoevsky, Crime and Punishment" },
+    { t: "An injury to one is an injury to all.", b: "Industrial Workers of the World" },
+    { t: "Create what is worthy of being created, not what the powerful will reward you for.", b: "Bammera Pothana" },
     { d: 1, t: "Which way to the fountain of my youth I wonder\nWhich way to the years I've let go by\nLet a thirsty man drink in its memories while the water still flows sweet and crystal clear", b: "Poets of the Fall, Given and Denied" }
   ];
   var qt = document.getElementById("quote-text");
@@ -153,12 +154,19 @@
     for (var i = 0; i < quotes.length; i++) if (quotes[i].d) return i;
     return 0;
   }
-  // a random quote, never the one currently on screen
-  function randomIndex() {
-    if (quotes.length < 2) return 0;
-    var i;
-    do { i = Math.floor(Math.random() * quotes.length); } while (i === lastShown);
-    return i;
+  // shuffled "deck" so every quote appears once before any repeats
+  var deck = [];
+  function refill() {
+    deck = quotes.map(function (_, i) { return i; });
+    for (var i = deck.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = deck[i]; deck[i] = deck[j]; deck[j] = t;
+    }
+    if (deck.length > 1 && deck[0] === lastShown) { var s = deck[0]; deck[0] = deck[1]; deck[1] = s; }
+  }
+  function nextIndex() {
+    if (!deck.length) refill();
+    return deck.shift();
   }
   function render(i) {
     lastShown = i;
@@ -167,29 +175,41 @@
     qt.textContent = quotes[i].t;
     qb.textContent = quotes[i].b;
   }
-  // first-ever visit shows the default quote; every later load/refresh is random
-  function showQuote() { render(randomIndex()); }
+  // first-ever visit shows the default quote; the deck guarantees no repeats until all shown
+  function showQuote() { render(nextIndex()); }
   var firstVisit = false;
   try { if (!localStorage.getItem("qSeen")) { firstVisit = true; localStorage.setItem("qSeen", "1"); } } catch (e) {}
-  render(firstVisit ? defaultIndex() : randomIndex());
+  refill();
+  if (firstVisit) {
+    var di = defaultIndex();
+    var dp = deck.indexOf(di); if (dp > -1) deck.splice(dp, 1);
+    render(di);
+  } else {
+    render(nextIndex());
+  }
   var rb = document.getElementById("quote-refresh");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function fadeInNew() {
     showQuote();
-    qt.style.opacity = "0";
+    qb.classList.remove("no-dash");
+    var els = [qt, qb];
+    if (qfa.style.display !== "none") els.push(qfa);
+    for (var i = 0; i < els.length; i++) { els[i].style.color = ""; els[i].style.opacity = "0"; }
     requestAnimationFrame(function () {
-      qt.style.transition = "opacity .32s ease";
-      qt.style.opacity = "1";
-      setTimeout(function () { qt.style.transition = ""; }, 380);
+      for (var i = 0; i < els.length; i++) { els[i].style.transition = "opacity .32s ease"; els[i].style.opacity = "1"; }
+      setTimeout(function () { for (var j = 0; j < els.length; j++) els[j].style.transition = ""; }, 380);
     });
   }
 
-  function dissolve() {
-    var rect = qt.getBoundingClientRect();
+  // dissolve one element's rendered content into rising particles, then call onDone.
+  // opts.dash draws the author line's gradient dash so it breaks up too.
+  function dissolveEl(el, onDone, opts) {
+    opts = opts || {};
+    var rect = el.getBoundingClientRect();
     var w = Math.ceil(rect.width), h = Math.ceil(rect.height);
-    if (!w || !h) { showQuote(); return; }
-    var cs = getComputedStyle(qt);
+    if (!w || !h) { onDone(); return; }
+    var cs = getComputedStyle(el);
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var cv = document.createElement("canvas");
     cv.width = w * dpr; cv.height = h * dpr;
@@ -199,33 +219,48 @@
     var fs = parseFloat(cs.fontSize);
     var lh = parseFloat(cs.lineHeight) || fs * 1.6;
     c.font = cs.fontStyle + " " + cs.fontWeight + " " + fs + "px " + cs.fontFamily;
-    c.fillStyle = cs.color;
-    c.textAlign = "center";
     c.textBaseline = "middle";
-    var words = (qt.textContent || "").split(/\s+/), lines = [], cur = "";
-    for (var i = 0; i < words.length; i++) {
-      var t = cur ? cur + " " + words[i] : words[i];
-      if (c.measureText(t).width > w && cur) { lines.push(cur); cur = words[i]; } else cur = t;
+    if (opts.dash) {
+      // author line: gradient dash + gap + text, centered as one group
+      c.textAlign = "left";
+      var dashW = 22, gap = 10, midY = h / 2;
+      var txt = el.textContent || "";
+      var txtW = c.measureText(txt).width;
+      var startX = Math.max(0, (w - (dashW + gap + txtW)) / 2);
+      var g = c.createLinearGradient(startX, 0, startX + dashW, 0);
+      g.addColorStop(0, "#2A4FC4"); g.addColorStop(1, "#C43A26");
+      c.fillStyle = g;
+      c.fillRect(startX, midY - 1, dashW, 2);
+      c.fillStyle = cs.color;
+      c.fillText(txt, startX + dashW + gap, midY);
+    } else {
+      c.fillStyle = cs.color;
+      c.textAlign = "center";
+      var words = (el.textContent || "").split(/\s+/), lines = [], cur = "";
+      for (var i = 0; i < words.length; i++) {
+        var t = cur ? cur + " " + words[i] : words[i];
+        if (c.measureText(t).width > w && cur) { lines.push(cur); cur = words[i]; } else cur = t;
+      }
+      if (cur) lines.push(cur);
+      var oy = (h - lines.length * lh) / 2;
+      for (var j = 0; j < lines.length; j++) c.fillText(lines[j], w / 2, oy + (j + 0.5) * lh);
     }
-    if (cur) lines.push(cur);
-    var oy = (h - lines.length * lh) / 2;
-    for (var j = 0; j < lines.length; j++) c.fillText(lines[j], w / 2, oy + (j + 0.5) * lh);
     var data = c.getImageData(0, 0, cv.width, cv.height).data;
-    var rgb = cs.color.match(/\d+/g) || [21, 25, 31];
     var step = (w * h > 90000) ? 4 : (w > 480 ? 3 : 2);
     var ps = [];
     for (var y = 0; y < h; y += step) {
       for (var x = 0; x < w; x += step) {
-        if (data[(Math.round(y * dpr) * cv.width + Math.round(x * dpr)) * 4 + 3] > 90) {
-          ps.push({ x: x, y: y, vx: (Math.random() - 0.5) * 1.1, vy: -(0.3 + Math.random() * 1.3), a: 1, d: 0.012 + Math.random() * 0.022 });
+        var idx = (Math.round(y * dpr) * cv.width + Math.round(x * dpr)) * 4;
+        if (data[idx + 3] > 90) {
+          ps.push({ x: x, y: y, vx: (Math.random() - 0.5) * 1.1, vy: -(0.3 + Math.random() * 1.3), a: 1, d: 0.012 + Math.random() * 0.022, col: data[idx] + "," + data[idx + 1] + "," + data[idx + 2] });
         }
       }
     }
     c.clearRect(0, 0, w, h);
-    qt.style.position = "relative";
-    qt.style.color = "transparent";
-    qt.appendChild(cv);
-    var fill = "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ")";
+    el.style.position = "relative";
+    el.style.color = "transparent";
+    if (opts.dash) el.classList.add("no-dash");
+    el.appendChild(cv);
     function frame() {
       c.clearRect(0, 0, w, h);
       var alive = 0;
@@ -233,12 +268,21 @@
         var p = ps[k];
         if (p.a <= 0) continue;
         p.x += p.vx; p.y += p.vy; p.vy += 0.014; p.a -= p.d;
-        if (p.a > 0) { alive++; c.globalAlpha = p.a; c.fillStyle = fill; c.fillRect(p.x, p.y, 1.6, 1.6); }
+        if (p.a > 0) { alive++; c.globalAlpha = p.a; c.fillStyle = "rgb(" + p.col + ")"; c.fillRect(p.x, p.y, 1.6, 1.6); }
       }
       if (alive > 0) { requestAnimationFrame(frame); }
-      else { cv.remove(); qt.style.color = ""; fadeInNew(); }
+      else { cv.remove(); onDone(); }
     }
     requestAnimationFrame(frame);
+  }
+
+  // dissolve the quote, author (with its dash), and script line together, then swap in
+  function dissolve() {
+    var items = [{ el: qt }, { el: qb, dash: true }];
+    if (qfa.style.display !== "none" && qfa.textContent) items.push({ el: qfa });
+    var pending = items.length;
+    var done = function () { if (--pending === 0) fadeInNew(); };
+    for (var i = 0; i < items.length; i++) dissolveEl(items[i].el, done, items[i].dash ? { dash: true } : null);
   }
 
   if (rb) {
