@@ -18,8 +18,28 @@ assets/
   fields.js         shared: value noise, curl field, coolwarm colormap
   hero.js           hero particle flow animation
   gallery.js        procedural gallery tiles
+data/
+  scholar.json      Google Scholar citation snapshot + history (not read at runtime)
+tools/
+  scholar-diff.py   diff a fresh Scholar reading against data/scholar.json
 .nojekyll           tells GitHub Pages to serve files as-is
 ```
+
+## Tracking citations
+
+`data/scholar.json` holds the last reading of the Google Scholar profile — per-paper
+counts keyed by slug, plus a `history` list of totals over time. Scholar blocks plain
+scrapers, so the reading is taken by hand (or by an agent that can render the page)
+into a small JSON file, then diffed:
+
+```bash
+tools/scholar-diff.py new.json          # what changed since the last snapshot
+tools/scholar-diff.py new.json --save   # record it as the new baseline
+```
+
+The script reports which papers gained citations, flags papers missing from the
+snapshot, and warns when the profile total moved by more than the per-paper changes
+account for.
 
 ## Preview locally
 

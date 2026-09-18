@@ -1,0 +1,168 @@
+{
+  "_comment": "Google Scholar citation snapshot. Update via tools/scholar-diff.py to see what changed since the last snapshot. Not used by the site at runtime.",
+  "profile": "https://scholar.google.com/citations?user=fM2UaHoAAAAJ&hl=en",
+  "snapshot_date": "2026-09-04",
+  "totals": {
+    "citations": 127,
+    "h_index": 8,
+    "i10_index": 6
+  },
+  "papers": {
+    "gradient-based-reconstruction": {
+      "title": "On the application of gradient based reconstruction for flow simulations on generalized curvilinear and dynamic mesh domains",
+      "venue": "Computers & Fluids 258",
+      "year": 2023,
+      "citations": 18
+    },
+    "spectral-viscous-flux": {
+      "title": "On the role of spectral properties of viscous flux discretization for flow simulations on marginally resolved grids",
+      "venue": "Computers & Fluids 251",
+      "year": 2023,
+      "citations": 17,
+      "cluster": "9593036133137012339"
+    },
+    "pinns-unsteady-maxwell": {
+      "title": "PINNs for solving unsteady Maxwell's equations: convergence issues and comparative assessment with compact schemes",
+      "venue": "Neural Computing and Applications 37(29)",
+      "year": 2025,
+      "citations": 16,
+      "cluster": "12487170460871723883"
+    },
+    "bow-shock-bleed-holes": {
+      "title": "Control of bow shock induced three-dimensional separation using bleed through holes",
+      "venue": "Physics of Fluids 35(1)",
+      "year": 2023,
+      "citations": 14
+    },
+    "second-derivative-schemes": {
+      "title": "High resolution optimized high-order schemes for discretization of non-linear straight and mixed second derivative terms",
+      "venue": "Journal of Computational Physics 513",
+      "year": 2024,
+      "citations": 11,
+      "cluster": "15582971179126669439"
+    },
+    "shock-protuberance-scaling": {
+      "title": "On the scaling of three-dimensional shock-induced separated flow due to protuberances",
+      "venue": "Physics of Fluids 34(7)",
+      "year": 2022,
+      "citations": 11
+    },
+    "gpu-choked-jets": {
+      "title": "GPU-accelerated numerical study of temperature effects in choked under-expanded supersonic jets",
+      "venue": "AIAA SCITECH 2023 Forum",
+      "year": 2023,
+      "citations": 8
+    },
+    "wall-distance-central-diff": {
+      "title": "On the use of high order central difference schemes for differential equation based wall distance computations",
+      "venue": "Computers & Fluids 248",
+      "year": 2022,
+      "citations": 8,
+      "cluster": "13306698053617297006"
+    },
+    "quantum-pinns-maxwell": {
+      "title": "Quantum physics-informed neural networks for Maxwell's equations",
+      "venue": "Quantum Machine Intelligence 8(1)",
+      "year": 2026,
+      "citations": 8,
+      "cluster": "5606370850145757465"
+    },
+    "jfm-area-expansion": {
+      "title": "The dynamics of shock wave propagation far downstream of an abrupt area expansion",
+      "venue": "Journal of Fluid Mechanics 997",
+      "year": 2024,
+      "citations": 7,
+      "cluster": "13634402891224021342"
+    },
+    "les-hypersonic-transition": {
+      "title": "Large eddy simulation of transitional and turbulent hypersonic flow",
+      "venue": "AIAA SCITECH 2023 Forum",
+      "year": 2023,
+      "citations": 3
+    },
+    "implicit-neural-representations": {
+      "title": "Improving Accuracy and Efficiency of Implicit Neural Representations",
+      "venue": "arXiv:2509.12980",
+      "year": 2025,
+      "citations": 2
+    },
+    "latent-enkf": {
+      "title": "Feature-preserving Latent-EnKF for Data Assimilation of Flows with Shocks",
+      "venue": "arXiv:2606.12559",
+      "year": 2026,
+      "citations": 1
+    },
+    "shock-local-constriction": {
+      "title": "Shock propagation through a local constriction",
+      "venue": "arXiv:2603.03489",
+      "year": 2026,
+      "citations": 1
+    },
+    "wmles-hypersonic-transition": {
+      "title": "Wall-Modeled Large-Eddy Simulation of Hypersonic Boundary Layer Transition",
+      "venue": "AIAA SCITECH 2026 Forum",
+      "year": 2026,
+      "citations": 1
+    },
+    "screech-wall-curvature": {
+      "title": "Impinging Wall Curvature Effects on Flow and Screech Tones",
+      "venue": "AIAA SCITECH 2024 Forum",
+      "year": 2024,
+      "citations": 1
+    },
+    "jet-impingement-concave": {
+      "title": "Supersonic jet impingement on concave surfaces",
+      "venue": "arXiv:2608.01542",
+      "year": 2026,
+      "citations": 0
+    },
+    "pinnacle-framework": {
+      "title": "PINNACLE: An Open-Source Computational Framework for Classical and Quantum PINNs",
+      "venue": "arXiv:2604.15645",
+      "year": 2026,
+      "citations": 0
+    },
+    "wall-temp-hypersonic": {
+      "title": "Effect of Wall Temperature on Hypersonic Boundary Layer Transition",
+      "venue": "AIAA SCITECH 2026 Forum",
+      "year": 2026,
+      "citations": 0
+    },
+    "spectral-bottleneck-siren": {
+      "title": "Spectral Bottleneck in Sinusoidal Representation Networks",
+      "venue": "arXiv:2509.09719",
+      "year": 2025,
+      "citations": 0
+    }
+  },
+  "history": [
+    {
+      "date": "2026-08-20",
+      "citations": 124,
+      "h_index": 8,
+      "i10_index": 6,
+      "note": "site metrics refresh (commit e5cf403)"
+    },
+    {
+      "date": "2026-08-27",
+      "citations": 124,
+      "h_index": 8,
+      "i10_index": 6,
+      "note": "per-paper metrics removed from publications.html (commit a92e856)"
+    },
+    {
+      "date": "2026-09-01",
+      "citations": 126,
+      "h_index": 8,
+      "i10_index": 6,
+      "note": "first tracked snapshot; +1 on pinns-unsteady-maxwell (15->16), +1 elsewhere among untracked preprints/proceedings"
+    },
+    {
+      "date": "2026-09-04",
+      "citations": 127,
+      "h_index": 8,
+      "i10_index": 6,
+      "note": "routine check; +1 on quantum-pinns-maxwell"
+    }
+  ]
+}

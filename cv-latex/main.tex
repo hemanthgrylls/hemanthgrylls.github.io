@@ -1,0 +1,79 @@
+% NSF proposal generation template style file.
+% based on latex stylefiles written by Stefan Llewellyn Smith and
+% Sarah Gille, with contributions from other collaborators.
+%
+\documentclass{proposalnsf}
+
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{gensymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+\usepackage{longtable,tabularx}
+\usepackage[labelfont=bf]{caption}
+\usepackage{etaremune}
+\usepackage{fontawesome}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\newcommand{\colorcircle}[1]{\tikz[baseline=-0.75ex]\draw[fill=#1,draw=black] (0,0) circle (1.25ex);}
+
+\newcommand{\halfcircle}[2]{
+\tikz[baseline=-0.75ex]{
+  \draw[black, thick] (0,0) circle(1.25ex);
+  \fill[#1] (0,0) -- (1.25ex,0) arc (0:180:1.25ex) -- cycle;
+  \fill[#2] (0,0) -- (-1.25ex,0) arc (180:360:1.25ex) -- cycle;
+}}
+
+\newcommand{\tricolorcircle}[3]{
+\tikz[baseline=-0.75ex]{
+  \draw[black, thick] (0,0) circle(1.25ex);
+  \fill[#1] (0,0) -- (1.25ex,0) arc (0:120:1.25ex) -- cycle;
+  \fill[#2] (0,0) -- ({1.25ex*cos(120)},{1.25ex*sin(120)}) arc (120:240:1.25ex) -- cycle;
+  \fill[#3] (0,0) -- ({1.25ex*cos(240)},{1.25ex*sin(240)}) arc (240:360:1.25ex) -- cycle;
+}}
+
+
+\renewcommand{\rmdefault}{cmr}
+\renewcommand{\sfdefault}{cmss}
+\renewcommand{\ttdefault}{cmtt}
+% \definecolor{lightred}{RGB}{255, 153, 153} % soft pinkish red
+
+% \definecolor{lightred}{RGB}{255, 204, 203}  % very soft pastel red
+% \definecolor{lightred}{RGB}{255, 153, 153}  % soft pinkish red (your original)
+% \definecolor{lightred}{RGB}{255, 160, 122}  % salmon red
+% \definecolor{lightred}{RGB}{188, 143, 143}  % muted rosy brown
+% \definecolor{lightred}{RGB}{248, 131, 121}  % coral pink
+\definecolor{lightred}{RGB}{255, 99, 71}    % tomato red
+% \definecolor{lightred}{RGB}{255, 183, 178}   % pale watermelon red
+% \definecolor{lightred}{RGB}{233, 94, 131} % vibrant but still soft crimson
+
+
+% See this file for a set of pre-defined journal abbreviations
+\input{journal-abbreviations.tex} 
+
+\newcommand{\degrees}{$\!\!$\char23$\!$}
+\renewcommand{\refname}{\centerline{References cited}}
+
+% This handles hanging indents for publications
+\def\rrr#1\\{\par
+\medskip\hbox{\vbox{\parindent=2em\hsize=6.12in
+\hangindent=4em\hangafter=1#1}}}
+
+\def\baselinestretch{1}
+
+\begin{document}
+
+
+
+\input{sections/CV.tex}
+
+
+\end{document}
