@@ -268,7 +268,7 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
 }
 .standfirst .hl { color: var(--warm); font-weight: 500; }
 
-.yt-line { font-family: var(--mono); font-size: 12.5px; margin: -12px 0 22px; }
+.yt-line { font-family: var(--mono); font-size: 12.5px; margin: 18px 0 0; }
 
 .video-embed {
   position: relative;
@@ -731,6 +731,7 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: center 85%;
   border-radius: 10px;
   display: block;
   margin: 0 0 16px;
