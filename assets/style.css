@@ -268,8 +268,6 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
 }
 .standfirst .hl { color: var(--warm); font-weight: 500; }
 
-.yt-line { font-family: var(--mono); font-size: 12.5px; margin: 18px 0 0; }
-
 .video-embed {
   position: relative;
   width: 100%;
