@@ -576,22 +576,82 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
 .note code { font-family: var(--mono); font-size: 13px; color: var(--cool); }
 
 /* ---------- misc page ---------- */
-.link-list { columns: 2; column-gap: 40px; }
-.link-list li { break-inside: avoid; margin-bottom: 9px; font-size: 15px; }
-@media (max-width: 620px) { .link-list { columns: 1; } }
+.wrap.misc { max-width: 920px; }
+.misc-toc { margin: 4px 0 28px; }
+.misc-toc .toc-title {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 10px;
+}
+.misc-toc ol { margin: 0; padding: 0; list-style: none; counter-reset: toc; }
+.misc-toc li { counter-increment: toc; padding: 7px 0; }
+.misc-toc li::before {
+  content: counter(toc) ". ";
+  font-family: var(--mono); font-size: 14.5px; color: var(--muted); margin-right: 4px;
+}
+.misc-toc a { font-family: var(--display); font-size: 16px; color: var(--cool); text-decoration: underline; text-underline-offset: 3px; }
+.misc-toc a:hover { color: color-mix(in srgb, var(--cool) 82%, black); }
+.misc-group {
+  scroll-margin-top: 84px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 18px 26px 6px;
+  box-shadow: 0 1px 3px rgba(20, 30, 60, .05);
+  margin-bottom: 18px;
+}
+.misc-group > h3 {
+  font-family: var(--display); font-size: 14px; font-weight: 600;
+  letter-spacing: .04em; color: var(--muted);
+  border-bottom: 1px solid var(--line); padding-bottom: 10px; margin: 0 0 6px;
+}
+.poem-entry { padding: 4px 0; border-bottom: 1px solid var(--line); }
+.poem-entry:last-child { border-bottom: 0; }
+.poem-entry summary {
+  cursor: pointer; list-style: none;
+  font-family: var(--display); font-size: 16px; font-weight: 500; color: var(--text);
+  padding: 10px 0;
+}
+.poem-entry summary::-webkit-details-marker { display: none; }
+.poem-entry summary::after {
+  content: "▸"; display: inline-block; margin-left: 9px;
+  font-size: 11px; color: var(--muted); transition: transform .15s ease;
+}
+.poem-entry[open] summary::after { transform: rotate(90deg); }
+.poem { margin: 6px 0 4px; }
+.poem p { font-family: var(--display); font-size: 16px; line-height: 1.6; color: #2b313c; margin: 0 0 18px; }
+.poem p:last-child { margin-bottom: 0; }
+.poem-by { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 10px 0 14px; }
 
-.influences { display: flex; flex-wrap: wrap; gap: 8px; }
-.influences .person {
-  font-family: var(--mono); font-size: 13px; color: #3a4252;
-  border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; background: #fff;
+.misc-list { margin: 0; padding: 0; list-style: none; }
+.misc-list li { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: #38404e; }
+.misc-list li:last-child { border-bottom: 0; }
+
+#reading-list .misc-list { columns: 2; column-gap: 36px; }
+#reading-list .misc-list li { break-inside: avoid; padding: 7px 0; border-bottom: none; }
+@media (max-width: 620px) {
+  #reading-list .misc-list { columns: 1; }
 }
 
-.quote {
-  font-family: var(--display); font-weight: 500;
-  font-size: clamp(20px, 3vw, 27px); line-height: 1.35;
-  max-width: 24ch; margin: 0;
+.book-table { width: 100%; border-collapse: collapse; margin: 4px 0 10px; }
+.book-table th, .book-table td { text-align: left; padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.book-table thead th { font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.book-table td.topic { font-weight: 600; width: 220px; color: var(--text); font-size: 15px; }
+.book-table td.books { color: #38404e; font-size: 15px; }
+.book-table td.books ul { margin: 0; padding-left: 18px; }
+.book-table td.books li { margin-bottom: 6px; }
+.book-table td.books li:last-child { margin-bottom: 0; }
+.book-table tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 620px) {
+  .book-table thead { display: none; }
+  .book-table, .book-table tbody, .book-table tr, .book-table td { display: block; width: auto; }
+  .book-table td { padding: 4px 0; border-bottom: none; }
+  .book-table td.topic {
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; padding-top: 14px;
+  }
+  .book-table tr { padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  .book-table tbody tr:last-child { border-bottom: none; }
 }
-.quote .by { display: block; font-family: var(--mono); font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 14px; }
 
 /* ---------- footer ---------- */
 .footer { padding: 40px 0 56px; }
@@ -729,7 +789,6 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: center 85%;
   border-radius: 10px;
   display: block;
   margin: 0 0 16px;
