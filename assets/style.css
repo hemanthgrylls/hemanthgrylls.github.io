@@ -789,6 +789,7 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: center 85%;
   border-radius: 10px;
   display: block;
   margin: 0 0 16px;
