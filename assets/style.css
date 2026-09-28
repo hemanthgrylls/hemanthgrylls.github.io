@@ -604,10 +604,19 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   letter-spacing: .04em; color: var(--muted);
   border-bottom: 1px solid var(--line); padding-bottom: 10px; margin: 0 0 6px;
 }
+#poetry {
+  border-color: #DCEBE1;
+  background-color: #F3F9F5;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nMjAwJyB2aWV3Qm94PScwIDAgMjAwIDIwMCc+CiAgPGcgZmlsbD0nbm9uZScgc3Ryb2tlPScjMkU5RTYzJyBzdHJva2Utb3BhY2l0eT0nMC4xNicgc3Ryb2tlLXdpZHRoPScxLjYnIHN0cm9rZS1saW5lY2FwPSdyb3VuZCc+CiAgICA8cGF0aCBkPSdNMzUgMTkwIEM1MCAxNTUgNDYgMTI1IDYwIDk4IEM3MCA3OCA2NiA1NSA4MCAzMicvPgogICAgPHBhdGggZD0nTTU4IDE0OCBDNDUgMTQzIDM1IDE0OCAyNiAxNjInLz4KICAgIDxwYXRoIGQ9J001OCAxNDggQzcyIDE0NiA4MiAxNTMgODYgMTY3Jy8+CiAgICA8cGF0aCBkPSdNNzIgMTAwIEM2MCA5OCA1MCAxMDQgNDQgMTE2Jy8+CiAgICA8cGF0aCBkPSdNNzIgMTAwIEM4MyAxMDAgOTAgMTA3IDkyIDEyMCcvPgogIDwvZz4KICA8ZyBmaWxsPScjMkU5RTYzJyBmaWxsLW9wYWNpdHk9JzAuMTMnIHN0cm9rZT0nbm9uZSc+CiAgICA8Y2lyY2xlIGN4PSc4MCcgY3k9JzMyJyByPSczLjQnLz4KICAgIDxlbGxpcHNlIGN4PSc3MScgY3k9JzI0JyByeD0nNS40JyByeT0nOScgdHJhbnNmb3JtPSdyb3RhdGUoLTMwIDcxIDI0KScvPgogICAgPGVsbGlwc2UgY3g9Jzg5JyBjeT0nMjQnIHJ4PSc1LjQnIHJ5PSc5JyB0cmFuc2Zvcm09J3JvdGF0ZSgzMCA4OSAyNCknLz4KICAgIDxlbGxpcHNlIGN4PSc4MCcgY3k9JzE4JyByeD0nNS40JyByeT0nOScvPgogICAgPGVsbGlwc2UgY3g9JzY2JyBjeT0nMzYnIHJ4PSc1LjQnIHJ5PSc5JyB0cmFuc2Zvcm09J3JvdGF0ZSgtNjIgNjYgMzYpJy8+CiAgICA8ZWxsaXBzZSBjeD0nOTQnIGN5PSczNicgcng9JzUuNCcgcnk9JzknIHRyYW5zZm9ybT0ncm90YXRlKDYyIDk0IDM2KScvPgogIDwvZz4KICA8ZyBmaWxsPSdub25lJyBzdHJva2U9JyMyRTlFNjMnIHN0cm9rZS1vcGFjaXR5PScwLjEwJyBzdHJva2Utd2lkdGg9JzEuMycgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJz4KICAgIDxwYXRoIGQ9J00xNTAgNjAgQzE2MCA0MCAxNTggMjIgMTcyIDgnLz4KICAgIDxwYXRoIGQ9J00xNjIgMzQgQzE1MiAzMCAxNDQgMzQgMTM4IDQ0Jy8+CiAgPC9nPgogIDxnIGZpbGw9JyMyRTlFNjMnIGZpbGwtb3BhY2l0eT0nMC4wOScgc3Ryb2tlPSdub25lJz4KICAgIDxjaXJjbGUgY3g9JzE3MicgY3k9JzgnIHI9JzIuNicvPgogICAgPGVsbGlwc2UgY3g9JzE2NScgY3k9JzMnIHJ4PSc0JyByeT0nNi41JyB0cmFuc2Zvcm09J3JvdGF0ZSgtMzAgMTY1IDMpJy8+CiAgICA8ZWxsaXBzZSBjeD0nMTc5JyBjeT0nMycgcng9JzQnIHJ5PSc2LjUnIHRyYW5zZm9ybT0ncm90YXRlKDMwIDE3OSAzKScvPgogIDwvZz4KPC9zdmc+");
+  background-repeat: repeat;
+  background-size: 170px 170px;
+}
+#poetry > h3 { border-bottom-color: #DCEBE1; color: #4E7862; }
+#poetry .poem-entry { border-bottom-color: #DCEBE1; }
 .poem-entry { padding: 4px 0; border-bottom: 1px solid var(--line); }
 .poem-entry:last-child { border-bottom: 0; }
 .poem-entry summary {
-  cursor: pointer; list-style: none;
+  cursor: pointer; list-style: none; text-align: center;
   font-family: var(--display); font-size: 16px; font-weight: 500; color: var(--text);
   padding: 10px 0;
 }
@@ -617,10 +626,10 @@ main > section:first-of-type { padding-top: clamp(14px, 2vw, 22px); }
   font-size: 11px; color: var(--muted); transition: transform .15s ease;
 }
 .poem-entry[open] summary::after { transform: rotate(90deg); }
-.poem { margin: 6px 0 4px; }
+.poem { margin: 6px 0 4px; text-align: center; }
 .poem p { font-family: var(--display); font-size: 16px; line-height: 1.6; color: #2b313c; margin: 0 0 18px; }
 .poem p:last-child { margin-bottom: 0; }
-.poem-by { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 10px 0 14px; }
+.poem-by { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 10px 0 14px; text-align: center; }
 
 .misc-list { margin: 0; padding: 0; list-style: none; }
 .misc-list li { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: #38404e; }
