@@ -1,9 +1,9 @@
 {
   "_comment": "Google Scholar citation snapshot. Update via tools/scholar-diff.py to see what changed since the last snapshot. Not used by the site at runtime.",
   "profile": "https://scholar.google.com/citations?user=fM2UaHoAAAAJ&hl=en",
-  "snapshot_date": "2026-09-04",
+  "snapshot_date": "2026-10-02",
   "totals": {
-    "citations": 127,
+    "citations": 130,
     "h_index": 8,
     "i10_index": 6
   },
@@ -64,7 +64,7 @@
       "title": "Quantum physics-informed neural networks for Maxwell's equations",
       "venue": "Quantum Machine Intelligence 8(1)",
       "year": 2026,
-      "citations": 8,
+      "citations": 9,
       "cluster": "5606370850145757465"
     },
     "jfm-area-expansion": {
@@ -90,7 +90,7 @@
       "title": "Feature-preserving Latent-EnKF for Data Assimilation of Flows with Shocks",
       "venue": "arXiv:2606.12559",
       "year": 2026,
-      "citations": 1
+      "citations": 3
     },
     "shock-local-constriction": {
       "title": "Shock propagation through a local constriction",
@@ -133,6 +133,12 @@
       "venue": "arXiv:2509.09719",
       "year": 2025,
       "citations": 0
+    },
+    "hybrid-qc-pinns-framework": {
+      "title": "Hybrid Quantum-Classical PINNs for Scientific Computing: A Multi-GPU Open-Source Framework",
+      "venue": "",
+      "year": 2026,
+      "citations": 0
     }
   },
   "history": [
@@ -163,6 +169,13 @@
       "h_index": 8,
       "i10_index": 6,
       "note": "routine check; +1 on quantum-pinns-maxwell"
+    },
+    {
+      "date": "2026-10-02",
+      "citations": 130,
+      "h_index": 8,
+      "i10_index": 6,
+      "note": "routine check; +1 on quantum-pinns-maxwell, +2 on latent-enkf since last snapshot"
     }
   ]
 }
