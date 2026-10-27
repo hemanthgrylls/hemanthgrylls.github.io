@@ -47,16 +47,39 @@
       </nav>
 
       <div class="misc-group" id="poetry">
+        <div class="poem-bg theme-still"></div>
         <h3>Poetry</h3>
-        <details class="poem-entry">
-          <summary>Can you remain still?</summary>
-          <div class="poem">
-            <p>When the clouds turned gray<br>When the heart overwhelmed with grayest grim<br>When it was no one's fault<br>While the deep cuts altered your senses<br>Can you remain still?<br>Can you let the rain fall on your face?</p>
-            <p>Do you have it?<br>The stillness it takes<br>For the mud to settle<br>Till it's clear</p>
-            <p>Can you remain still?<br>Can you remain still?<br>Can you empty yourself for the right thing to unfold itself?</p>
+        <div class="poem-pager">
+          <div class="poem-stage">
+            <div class="poem-page" data-theme="theme-still">
+              <p class="poem-title">Can you remain still?</p>
+              <div class="poem">
+                <p>When the clouds turned gray<br>When the heart overwhelmed with grayest grim<br>When it was no one's fault<br>While the deep cuts altered your senses<br>Can you remain still?<br>Can you let the rain fall on your face?</p>
+                <p>Do you have it?<br>The stillness it takes<br>For the mud to settle<br>Till it's clear</p>
+                <p>Can you remain still?<br>Can you remain still?<br>Can you empty yourself for the right thing to unfold itself?</p>
+              </div>
+              <p class="poem-by">HC (inspired by Taoism), Sep 20th 2026</p>
+            </div>
+            <div class="poem-page" data-theme="theme-frost" style="display:none">
+              <p class="poem-title">Stopping by Woods on a Snowy Evening</p>
+              <div class="poem">
+                <p>Whose woods these are I think I know.<br>His house is in the village though;<br>He will not see me stopping here<br>To watch his woods fill up with snow.</p>
+                <p>My little horse must think it queer<br>To stop without a farmhouse near<br>Between the woods and frozen lake<br>The darkest evening of the year.</p>
+                <p>He gives his harness bells a shake<br>To ask if there is some mistake.<br>The only other sound's the sweep<br>Of easy wind and downy flake.</p>
+                <p>The woods are lovely, dark and deep,<br>But I have promises to keep,<br>And miles to go before I sleep,<br>And miles to go before I sleep.</p>
+              </div>
+              <p class="poem-by">Robert Frost, Stopping by Woods on a Snowy Evening (1923)</p>
+            </div>
           </div>
-          <p class="poem-by">HC (inspired by Taoism), Sep 20th 2026</p>
-        </details>
+          <div class="poem-nav">
+            <button class="poem-prev" type="button" aria-label="Previous poem"><span aria-hidden="true">&lsaquo;</span></button>
+            <button class="poem-next" type="button" aria-label="Next poem"><span aria-hidden="true">&rsaquo;</span></button>
+          </div>
+          <div class="poem-dots" role="tablist" aria-label="Poems">
+            <button class="dot active" type="button" data-i="0" aria-label="Poem 1" aria-selected="true"></button>
+            <button class="dot" type="button" data-i="1" aria-label="Poem 2" aria-selected="false"></button>
+          </div>
+        </div>
       </div>
 
       <div class="misc-group" id="book-recommendations">
@@ -184,5 +207,6 @@
 </footer>
 <script src="assets/fields.js"></script>
 <script src="assets/navflow.js"></script>
+<script src="assets/poem-pager.js"></script>
 </body>
 </html>

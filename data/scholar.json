@@ -1,11 +1,11 @@
 {
   "_comment": "Google Scholar citation snapshot. Update via tools/scholar-diff.py to see what changed since the last snapshot. Not used by the site at runtime.",
   "profile": "https://scholar.google.com/citations?user=fM2UaHoAAAAJ&hl=en",
-  "snapshot_date": "2026-10-02",
+  "snapshot_date": "2026-10-09",
   "totals": {
-    "citations": 130,
+    "citations": 132,
     "h_index": 8,
-    "i10_index": 6
+    "i10_index": 7
   },
   "papers": {
     "gradient-based-reconstruction": {
@@ -38,7 +38,7 @@
       "title": "High resolution optimized high-order schemes for discretization of non-linear straight and mixed second derivative terms",
       "venue": "Journal of Computational Physics 513",
       "year": 2024,
-      "citations": 11,
+      "citations": 12,
       "cluster": "15582971179126669439"
     },
     "shock-protuberance-scaling": {
@@ -64,7 +64,7 @@
       "title": "Quantum physics-informed neural networks for Maxwell's equations",
       "venue": "Quantum Machine Intelligence 8(1)",
       "year": 2026,
-      "citations": 9,
+      "citations": 10,
       "cluster": "5606370850145757465"
     },
     "jfm-area-expansion": {
@@ -176,6 +176,13 @@
       "h_index": 8,
       "i10_index": 6,
       "note": "routine check; +1 on quantum-pinns-maxwell, +2 on latent-enkf since last snapshot"
+    },
+    {
+      "date": "2026-10-09",
+      "citations": 132,
+      "h_index": 8,
+      "i10_index": 7,
+      "note": "routine check; +1 on second-derivative-schemes, +1 on quantum-pinns-maxwell; i10-index 6 -> 7"
     }
   ]
 }
