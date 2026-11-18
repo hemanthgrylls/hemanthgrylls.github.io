@@ -101,14 +101,47 @@
             <a href="https://gfm.aps.org/meetings/dfd-2023/650210c2199e4c1475d6f135" target="_blank" rel="noopener">APS-DFD 2023 Gallery of Fluid Motion submission ↗</a>
           </figcaption>
         </figure>
-        <p class="eyebrow" style="margin-top:34px">Research areas</p>
-        <div class="chips">
-          <span class="chip">Computational fluid dynamics (CFD)</span>
-          <span class="chip">Numerical analysis</span>
-          <span class="chip">Data assimilation</span>
-          <span class="chip">Machine learning</span>
-          <span class="chip">Inverse problems</span>
-          <span class="chip">Shock waves</span>
+        <p class="eyebrow" style="margin-top:18px">Research areas</p>
+        <p class="research-areas">Computational fluid dynamics (CFD), numerical analysis, data assimilation, machine learning, inverse problems, shock waves</p>
+
+        <div class="featured-box" id="featured-box">
+          <div class="featured-stage">
+            <button type="button" class="feat-nav feat-prev" id="featured-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button type="button" class="feat-nav feat-next" id="featured-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+            <div class="featured-viewport">
+            <div class="featured-track" id="featured-track">
+              <a class="feat-slide" href="https://arxiv.org/abs/2606.12559" target="_blank" rel="noopener">
+                <img class="feat-canvas" src="assets/home/papers/latent_enkf.png" alt="Physical-space vs. latent-space interpolation between ensemble members" loading="lazy" />
+                <div class="feat-text">
+                  <p class="feat-title">Feature-preserving Latent-EnKF for Data Assimilation of Flows with Shocks</p>
+                  <p class="feat-journal">Preprint under review</p>
+                  <p class="feat-desc">A new approach for combining noisy measurements with numerical simulations to estimate the unknown underlying flow state, which features discontinuities like shocks.</p>
+                </div>
+              </a>
+              <a class="feat-slide" href="https://doi.org/10.1017/jfm.2026.12130" target="_blank" rel="noopener">
+                <img class="feat-canvas" src="assets/home/papers/jfm_constriction.png" alt="Schematic of shock interaction with sinusoidal and rectangular local constrictions" loading="lazy" />
+                <div class="feat-text">
+                  <p class="feat-title">Shock propagation through a local constriction</p>
+                  <p class="feat-journal">Journal of Fluid Mechanics · 1044, A21</p>
+                  <p class="feat-desc">Analytical models that predict the strength of the shock waves produced after a shock interacts with a localized area change in a duct.</p>
+                </div>
+              </a>
+              <a class="feat-slide" href="https://arxiv.org/abs/2312.12069" target="_blank" rel="noopener">
+                <img class="feat-canvas" src="assets/home/papers/jcp_second_deriv.png" alt="Finite-difference stencils for second-derivative discretization, base vs. optimized" loading="lazy" />
+                <div class="feat-text">
+                  <p class="feat-title">High resolution optimized high-order schemes for discretization of non-linear straight and mixed second derivative terms</p>
+                  <p class="feat-journal">Journal of Computational Physics · 513</p>
+                  <p class="feat-desc">State-of-the-art optimized numerical schemes for discretizing diffusion terms, designed for DNS and LES.</p>
+                </div>
+              </a>
+            </div>
+            </div>
+          </div>
+          <div class="featured-dots" id="featured-dots">
+            <span class="f-dot is-active"></span>
+            <span class="f-dot"></span>
+            <span class="f-dot"></span>
+          </div>
         </div>
       </div>
 
@@ -155,6 +188,7 @@
 </footer>
 
 <script src="assets/fields.js"></script>
+<script src="assets/featured.js"></script>
 <script src="assets/navflow.js"></script>
 <script>
 (function () {
